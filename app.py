@@ -1,44 +1,38 @@
-#!/usr/bin/python3
-# app.py
-
 from flask import Flask, render_template, request, jsonify
 import requests
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/weather": {"origins": "*"}})
 
-# API Key and base URL for OpenWeatherMap
-API_KEY = '2efb1ed6682e4844926192513240709'  # Replace with the API Key
-BASE_URL = 'https://app.swaggerhub.com/apis-docs/WeatherAPI.com/WeatherAPI/1.0.2#/APIs/'
+# API Key for WeatherAPI
+API_KEY = '684c1d19b6914a02ab9172825242409' 
+BASE_URL = 'https://api.weatherapi.com/v1/forecast.json'
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# Route principale pour récupérer la météo par nom de ville
 @app.route('/weather', methods=['GET'])
 def get_weather():
     city = request.args.get('city')
-    
+    days = request.args.get('days', 5)  
+    aqi = request.args.get('aqi', 'no')
+    alerts = request.args.get('alerts', 'no')
+
     if not city:
         return jsonify({'error': 'City parameter is required'}), 400
-    
-    full_url = f"{BASE_URL}?q={city}&appid={API_KEY}&units=metric"
-    response = requests.get(full_url)
-    
-    if response.status_code == 200:
-        data = response.json()
-        weather_data = {
-            'city': data['name'],
-            'temperature': data['main']['temp'],
-            'humidity': data['main']['humidity'],
-            'wind_speed': data['wind']['speed'],
-            'description': data['weather'][0]['description'],
-            'icon': data['weather'][0]['icon']
-        }
+
+    # Requête API WeatherAPI pour obtenir la météo
+    weather_url = f"{BASE_URL}?key={API_KEY}&q={city}&days={days}&aqi={aqi}&alerts={alerts}"
+    weather_response = requests.get(weather_url)
+
+    if weather_response.status_code == 200:
+        weather_data = weather_response.json()
         return jsonify(weather_data)
-    elif response.status_code == 404:
-        return jsonify({'error': 'City not found'}), 404
     else:
-        return jsonify({'error': 'Failed to retrieve data from API'}), 500
+        return jsonify({'error': 'Failed to retrieve weather data'}), weather_response.status_code
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,211 +1,69 @@
 <!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hewa</title>
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <meta charset="utf-8">
+    <title>hewa</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../static/js/script.js" defer></script>
   </head>
   <body>
-    <div class="sidebar grey">
-      <div class="top">
-        <div class="logo">
-          <img
-            src="../static/images/umbrella.png"
-            alt="logo"
-            class="logo-img"
-          />
-          <span>Hewa</span>
-        </div>
-        <i class="bx bx-menu" id="btn"></i>
+    <h1>Hewa Dashboard</h1>
+    <div class="container">
+      <div class="weather-input">
+        <h3>Enter a City Name</h3>
+        <input class="city-input" type="text" placeholder="E.g., New York, London, Tokyo">
+        <button class="search-btn">Search</button>
+        <div class="separator"></div>
+        <button class="location-btn">Use Current Location</button>
       </div>
-      <ul>
-        <li>
-          <a href="#">
-            <i class="bx bx-cloud-light-rain"></i>
-            <span class="nav-item">Weather</span>
-          </a>
-          <span class="tooltip">Weather</span>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bx bx-buildings"></i>
-            <span class="nav-item">Cities</span>
-          </a>
-          <span class="tooltip">Cities</span>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bx bx-map-pin"></i>
-            <span class="nav-item">Map</span>
-          </a>
-          <span class="tooltip">Map</span>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bx bx-cog"></i>
-            <span class="nav-item">Settings</span>
-          </a>
-          <span class="tooltip">Settings</span>
-        </li>
-      </ul>
-    </div>
-    <div class="main-content">
-      <div class="container">
-        <div class="middle">
-          <div class="search-city">
-            <form id="city-form">
-              <input
-                class="grey"
-                type="search"
-                name="city"
-                placeholder="Search for cities"
-              />
-            </form>
-          </div>
-          <div class="current">
-            <div class="summary">
-              <div>
-                <h1>Madrid</h1>
-                <p>Chances of rain: 0%</p>
-              </div>
-              <div>
-                <h1>31</h1>
-              </div>
-            </div>
-            <div>
-              <img src="../static/images/sun.png" />
-            </div>
-          </div>
-          <div class="grey">
-            <p>TODAY'S FORECAST</p>
-            <div class="today">
-              <div class="time">
-                <p>6.00 AM</p>
-                <img src="../static/images/sun.png" />
-                <p>31</p>
-              </div>
-              <div class="time">
-                <p>9.00 AM</p>
-                <img src="../static/images/sun.png" />
-                <p>31</p>
-              </div>
-              <div class="time">
-                <p>12.00 PM</p>
-                <img src="../static/images/sun.png" />
-                <p>31</p>
-              </div>
-              <div class="time">
-                <p>3.00 PM</p>
-                <img src="../static/images/sun.png" />
-                <p>31</p>
-              </div>
-              <div class="time">
-                <p>6.00 PM</p>
-                <img src="../static/images/sun.png" />
-                <p>31</p>
-              </div>
-              <div class="time">
-                <p>9.00 PM</p>
-                <img src="../static/images/sun.png" />
-                <p>31</p>
-              </div>
-            </div>
-          </div>
-          <div class="air grey">
-            <p>AIR CONDITIONS</p>
-            <a class="more-btn" href="#">See more</a>
-            <div class="detail">
-              <div>
-                <i class="bx bxs-droplet"></i>
-                <span>Real Feel</span>
-                <p>0.2 km/h</p>
-              </div>
-              <div>
-                <i class="bx bx-wind"></i>
-                <span>Wind</span>
-                <p>0.2 km/h</p>
-              </div>
-              <div>
-                <i class="bx bxs-droplet"></i>
-                <span>Chance of rain</span>
-                <p>0.2 km/h</p>
-              </div>
-              <div>
-                <i class="bx bx-wind"></i>
-                <span>UV Index</span>
-                <p>0.2 km/h</p>
-              </div>
-            </div>
+      <div class="weather-data">
+        <div class="current-weather">
+          <div class="details">
+            <h2>_______ ( ______ )</h2>
+            <h6>Temperature: __°C</h6>
+            <h6>Wind: __ M/S</h6>
+            <h6>Humidity: __%</h6>
           </div>
         </div>
-        <div class="right grey">
-          <p>7-DAY FORECAST</p>
-          <div class="forecast">
-            <div class="day">
-              <p>Today</p>
-              <div>
-                <img src="../static/images/sun.png" />
-                <span>Sunny</span>
-              </div>
-              <p>32/22</p>
-            </div>
-            <div class="day">
-              <p>Today</p>
-              <div>
-                <img src="../static/images/sun.png" />
-                <span>Sunny</span>
-              </div>
-              <p>32/22</p>
-            </div>
-            <div class="day">
-              <p>Today</p>
-              <div>
-                <img src="../static/images/sun.png" />
-                <span>Sunny</span>
-              </div>
-              <p>32/22</p>
-            </div>
-            <div class="day">
-              <p>Today</p>
-              <div>
-                <img src="../static/images/sun.png" />
-                <span>Sunny</span>
-              </div>
-              <p>32/22</p>
-            </div>
-            <div class="day">
-              <p>Today</p>
-              <div>
-                <img src="../static/images/sun.png" />
-                <span>Sunny</span>
-              </div>
-              <p>32/22</p>
-            </div>
-            <div class="day">
-              <p>Today</p>
-              <div>
-                <img src="../static/images/sun.png" />
-                <span>Sunny</span>
-              </div>
-              <p>32/22</p>
-            </div>
-            <div class="day">
-              <p>Today</p>
-              <div>
-                <img src="../static/images/sun.png" />
-                <span>Sunny</span>
-              </div>
-              <p>32/22</p>
-            </div>
-          </div>
+        <div class="days-forecast">
+          <h2>5-Day Forecast</h2>
+          <ul class="weather-cards">
+            <li class="card">
+              <h3>( ______ )</h3>
+              <h6>Temp: __C</h6>
+              <h6>Wind: __ M/S</h6>
+              <h6>Humidity: __%</h6>
+            </li>
+            <li class="card">
+              <h3>( ______ )</h3>
+              <h6>Temp: __C</h6>
+              <h6>Wind: __ M/S</h6>
+              <h6>Humidity: __%</h6>
+            </li>
+            <li class="card">
+              <h3>( ______ )</h3>
+              <h6>Temp: __C</h6>
+              <h6>Wind: __ M/S</h6>
+              <h6>Humidity: __%</h6>
+            </li>
+            <li class="card">
+              <h3>( ______ )</h3>
+              <h6>Temp: __C</h6>
+              <h6>Wind: __ M/S</h6>
+              <h6>Humidity: __%</h6>
+            </li>
+            <li class="card">
+              <h3>( ______ )</h3>
+              <h6>Temp: __C</h6>
+              <h6>Wind: __ M/S</h6>
+              <h6>Humidity: __%</h6>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+    
   </body>
-  <script src="../static/js/script.js"></script>
 </html>
